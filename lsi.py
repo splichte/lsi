@@ -86,13 +86,17 @@ def find_new_event(s1, s2, p, q):
 				q.insert(i, [])
 	
 # segment is in ((x, y), (x, y)) form
-# first pt in a segment should have higher y-val
+# first pt in a segment should have higher y-val - this is handled in function
 def intersection(S):
 	s0 = S[0]
+	if s0[1][1] > s0[0][1]:
+		s0 = (s0[1], s0[0])
 	q = Q(s0[0], [s0])
 	q.insert(s0[1], [])
 	intersections = {}
 	for s in S[1:]:
+		if s[1][1] > s[0][1]:
+			s = (s[1], s[0])
 		q.insert(s[0], [s])
 		q.insert(s[1], [])
 	t = T()

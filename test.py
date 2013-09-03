@@ -24,10 +24,7 @@ if not use_file:
 	for i in range(int(sys.argv[1])):
 		p1 = (scale(random.randint(0, 1000)), scale(random.randint(0, 1000)))
 		p2 = (scale(random.randint(0, 1000)), scale(random.randint(0, 1000)))
-		if p1[1] > p2[1]:
-			s = (p1, p2)
-		else:
-			s = (p2, p1)
+		s = (p1, p2)
 		S.append(s)
 	f = open('input', 'w')
 	f.write(str(S))
