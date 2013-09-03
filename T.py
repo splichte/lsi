@@ -25,10 +25,6 @@ class T:
 		if self.root.value is None:
 			return None
 		return self.root.get_right_neighbor(p)
-	def get_neighbors(self, p):
-		if self.root.value is None:
-			return (None, None)
-		return self.root.get_neighbors(p)
 	def insert(self, key, s):
 		if self.root.value is None:
 			self.root.left = Node(s, None, None, self.root)
@@ -222,68 +218,6 @@ class Node:
 		if c==-1:
 			return n
 		return neighbor
-
-	# gets neighbors of a point p; that point may or may not be in a segment in T
-	def get_neighbors(self, p):
-		neighbors = [None, None]
-		n = self
-		if n.left is None and n.right is None:
-			return neighbors
-		last_left = None
-		last_right = None
-		found = False
-		while not found:
-			c = n.compare_to_key(p)
-			if c < 1 and n.left:
-				n = n.left
-				last_left = n.parent
-			elif c==1 and n.right:
-				n = n.right
-				last_right = n.parent
-			else:
-				found = True
-		# now at a leaf node?
-		if (not n.left) and (not n.right):
-			c = n.compare_to_key(p)
-			if c==0:
-				if n is n.parent.right:
-					goleft = None
-					if last_left:
-						goleft = last_left.right
-					return self.get_lr(goleft, n.parent.left)
-				else:
-					goright = None
-					if last_right:
-						goright = last_right.left
-					return self.get_lr(n.parent.right, goright)
-			elif c==-1:
-				neighbors[1] = n
-				if n is n.parent.right:
-					neighbors[0] = self.get_lr(None, n.parent.left)[0]
-				else:
-					if last_right:
-						neighbors[0] = self.get_lr(None, last_right.left)[0] 
-			else:
-				neighbors[0] = n
-				if n is n.parent.left:
-					neighbors[1] = self.get_lr(n.parent.right, None)[1]
-				else:
-					if last_left:
-						neighbors[1] = self.get_lr(last_left.right, None)[1]
-		else:
-			if c < 1:
-				goright = None
-				goleft = n.right
-				if last_right:
-					goright = last_right.left
-				return self.get_lr(goleft, goright)
-			else:
-				goleft = None
-				goright = n.left
-				if last_left:
-					goleft = last_left.right
-				return self.get_lr(goleft, goright)
-		return neighbors
 
 	# travels down a single direction to get neighbors
 	def get_lr(self, left, right):

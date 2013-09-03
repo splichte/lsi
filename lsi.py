@@ -65,7 +65,7 @@ def handle_event_point(p, segs, q, t, intersections):
 
 	# means only L_p -> check newly-neighbored segments
 	if len(merge_UC) == 0:
-		neighbors = (t.get_left_neighbor(p), t.get_right_neighbor(p))#t.get_neighbors(p)
+		neighbors = (t.get_left_neighbor(p), t.get_right_neighbor(p))
 		if neighbors[0] and neighbors[1]:
 			find_new_event(neighbors[0].value, neighbors[1].value, p, q)
 			
