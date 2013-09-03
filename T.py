@@ -44,17 +44,11 @@ class T:
 					new_internal = Node(s, None, node, node.parent)
 					new_leaf = Node(s, None, None, new_internal)
 					new_internal.left = new_leaf
-					try:
-						if node is node.parent.left:
-							node.parent.left = new_internal
-							node.adjust()
-						else:
-							node.parent.right = new_internal
-					except:
-						print node.value
-						print key
-						print s 
-						self.root.print_tree()
+					if node is node.parent.left:
+						node.parent.left = new_internal
+						node.adjust()
+					else:
+						node.parent.right = new_internal
 				else:
 					new_internal = Node(node.value, node, None, node.parent)
 					new_leaf = Node(s, None, None, new_internal)
