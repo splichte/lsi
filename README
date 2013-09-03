@@ -6,6 +6,15 @@ http://en.wikipedia.org/wiki/Bentley-Ottmann_algorithm
 
 for more information.
 
+Usage:
+
+from lsi import intersection
+
+# S is a list of tuples of the form: ((x,y), (x,y))
+i = intersection(S)
+
+This function returns a dictionary of intersection points (keys) and a list of their associated segments (values).
+
 
 Currently, this implementation does not handle horizontal/vertical line segments. This will be changed shortly!
 
