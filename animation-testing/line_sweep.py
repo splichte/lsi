@@ -14,6 +14,8 @@ from matplotlib import animation
 # prettier
 plt.style.use('ggplot')
 
+# plt.rcParams['animation.ffmpeg_path'] = '/usr/local/bin/ffmpeg'
+
 # canvas size
 height = 400
 width = 400
@@ -38,10 +40,13 @@ def animate(j):
 
 ani = animation.FuncAnimation(fig, animate, frames=height, interval=10, repeat=False, blit=True, init_func=init)
 
+#ani = animation.FuncAnimation(fig, animate, frames=height, interval=10, repeat=False, init_func=init, blit=False)
+
 # frames is the period length of variable j...does it really do anything beyond 
 # changing the number that gets passed to animate? no, i think that's it.
 # this will repeat indefinitely, whereas i guess artistanimation will stop eventually.
 
 # set repeat=False to get funcanimation to stop running after the specified number of frames.
 
-plt.show()
+#ani.save('line_sweep.mp4', fps=30, extra_args=['-vcodec','libx264'])
+ani.save('line_sweep.mp4', fps=30, bitrate=1800)

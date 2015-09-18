@@ -1,0 +1,6 @@
+1. blitting (use different backend) -- show the difference
+2. saving animations - no options produced unacceptably bad visuals, because of the compression. i fixed this by manually setting a higher bitrate, which produced a more acceptable visualization.
+3. my mp4 file ran on safari, but not on chrome or firefox (chrome 45, firefox 40 -- most recent installs)
+4. solution: install ffmpeg to provide conversions to different formats, and provide all of them as sources inside the video tag.
+
+generally, this is a lot of hassle. if I do animations from now on, it will probably be using javascript.

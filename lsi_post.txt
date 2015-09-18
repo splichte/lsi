@@ -1,0 +1,5 @@
+post 1 outline:
+my pictures of: implementation of line segment intersection algorithm / some basic matplotlib stuff
+
+post 2:
+midpoint polygon animation
