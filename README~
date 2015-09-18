@@ -21,3 +21,4 @@ Currently, this implementation does not handle horizontal/vertical line segments
 A test file is available. It compares the running time of the algorithm to that of a brute-force O(N^2) comparison. It also generates a specified number of random input segments--you can set the precision and range by editing the file.
 
 Email at: splichte@princeton.edu
+

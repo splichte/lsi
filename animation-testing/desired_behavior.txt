@@ -1,0 +1,7 @@
+line moves down -> line sweep does this, done. looks awesome.
+as it processes line segments, it will highlight any area of intersection
+user can stop, rewind, move forward, etc. using a play button scroller (see that jake guy's blog for examples)
+
+
+issues:
+make line sweeping look smooth, even though it's actually really "jumping" based on a priority queue.
